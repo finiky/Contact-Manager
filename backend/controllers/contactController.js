@@ -1,13 +1,10 @@
-// 2desc Get all contacts
-// @route GET /api/contacts
-// public access
-const getContact = (request, response) => {
+const getContacts = (request, response) => {
   response.status(200).json({ message: "Get all contacts" });
 };
 const createContact = (request, response) => {
-  response.status(200).json({ message: "Create a contact" });
+  response.status(201).json({ message: "Create a contact" });
 };
-const getSingleContact = (request, response) => {
+const getContact = (request, response) => {
   response.status(200).json({ message: "Get a single contact" });
 };
 const updateContact = (request, response) => {
@@ -18,9 +15,9 @@ const deleteContact = (request, response) => {
 };
 
 module.exports = {
-  getContact,
+  getContacts,
   createContact,
-  getSingleContact,
+  getContact,
   updateContact,
   deleteContact,
 };
