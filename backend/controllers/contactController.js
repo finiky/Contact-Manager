@@ -1,24 +1,44 @@
-const getContacts = (request, response) => {
-  response.status(200).json({ message: "Get all contacts" });
-};
-const createContact = (request, response) => {
-  const { name, email, phone } = request.body;
-  if (!name || !email || !phone) {
-    response.status(400);
-    throw new Error(
-      "Kindly ensure that the name, email and phone fields are filled."
-    );
+const getContacts = async (request, response) => {
+  try {
+    response.status(200).json({ message: "Get all contacts" });
+  } catch (error) {
+    next(error);
   }
-  response.status(201).json({ name: name, email: email, phone: phone });
 };
-const getContact = (request, response) => {
-  response.status(200).json({ message: "Get a single contact" });
+const createContact = async (request, response, next) => {
+  try {
+    const { name, email, phone } = request.body;
+    if (!name || !email || !phone) {
+      response.status(400);
+      throw new Error(
+        "Kindly ensure that the name, email and phone fields are filled."
+      );
+    }
+    response.status(201).json({ name: name, email: email, phone: phone });
+  } catch (error) {
+    next(error);
+  }
 };
-const updateContact = (request, response) => {
-  response.status(200).json({ message: "Update a contact" });
+const getContact = async (request, response, next) => {
+  try {
+    response.status(200).json({ message: "Get a single contact" });
+  } catch (error) {
+    next(error);
+  }
 };
-const deleteContact = (request, response) => {
-  response.status(200).json({ message: "Delete a contact" });
+const updateContact = async (request, response) => {
+  try {
+    response.status(200).json({ message: "Update a contact" });
+  } catch (error) {
+    next(error);
+  }
+};
+const deleteContact = async (request, response) => {
+  try {
+    response.status(200).json({ message: "Delete a contact" });
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports = {
