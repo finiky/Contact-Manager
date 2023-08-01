@@ -1,10 +1,14 @@
+const contactSchema = require("../models/contactModel");
+const ObjectId = require("mongodb").ObjectId;
 const getContacts = async (request, response) => {
   try {
-    response.status(200).json({ message: "Get all contacts" });
+    const contacts = await contactSchema.find();
+    response.status(200).json(contacts);
   } catch (error) {
     next(error);
   }
 };
+
 const createContact = async (request, response, next) => {
   try {
     const { name, email, phone } = request.body;
@@ -14,28 +18,86 @@ const createContact = async (request, response, next) => {
         "Kindly ensure that the name, email and phone fields are filled."
       );
     }
-    response.status(201).json({ name: name, email: email, phone: phone });
+    const contact = await contactSchema.create({
+      name,
+      email,
+      phone,
+    });
+    if (contact) {
+      response.status(201).json(contact);
+    } else {
+      response.status(400);
+      throw new Error("Error creating the contact. Kindly try again.");
+    }
   } catch (error) {
     next(error);
   }
 };
+
 const getContact = async (request, response, next) => {
   try {
-    response.status(200).json({ message: "Get a single contact" });
+    if (!ObjectId.isValid(request.params.contactid)) {
+      response.status(400);
+      throw new Error("Contact Id is invalid");
+    }
+    const contact = await contactSchema.findById(request.params.contactid);
+    if (!contact) {
+      response.status(404);
+      throw new Error("Contact not found");
+    }
+    response.status(200).json(contact);
   } catch (error) {
     next(error);
   }
 };
-const updateContact = async (request, response) => {
+
+const updateContact = async (request, response, next) => {
   try {
-    response.status(200).json({ message: "Update a contact" });
+    if (!ObjectId.isValid(request.params.contactid)) {
+      response.status(400);
+      throw new Error("Contact Id is invalid");
+    }
+    const contact = await contactSchema.findById(request.params.contactid);
+    if (!contact) {
+      response.status(404);
+      throw new Error("Contact not found");
+    }
+    const updatedContact = await contactSchema.findByIdAndUpdate(
+      request.params.contactid,
+      request.body,
+      { new: true }
+    );
+    if (updateContact) {
+      response.status(200).json(updatedContact);
+    } else {
+      response.status(400);
+      throw new Error("Error updating the contact. Kindly try again.");
+    }
   } catch (error) {
     next(error);
   }
 };
-const deleteContact = async (request, response) => {
+
+const deleteContact = async (request, response, next) => {
   try {
-    response.status(200).json({ message: "Delete a contact" });
+    if (!ObjectId.isValid(request.params.contactid)) {
+      response.status(400);
+      throw new Error("Contact Id is invalid");
+    }
+    const contact = await contactSchema.findById(request.params.contactid);
+    if (!contact) {
+      response.status(404);
+      throw new Error("Contact not found");
+    }
+    const deletedContact = await contactSchema.findByIdAndRemove(
+      request.params.contactid
+    );
+    if (deletedContact) {
+      response.status(200).json(deletedContact);
+    } else {
+      response.status(400);
+      throw new Error("Error deleting the contact. Kindly try again.");
+    }
   } catch (error) {
     next(error);
   }
