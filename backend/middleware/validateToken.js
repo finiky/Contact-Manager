@@ -12,13 +12,13 @@ const validateToken = (request, response, next) => {
           response.status(404);
           throw new Error("User is not authorized.");
         }
-        request.user = (decoded.user)
+        request.user = decoded.user;
         next();
       });
     }
-    if(!token) {
-        response.status(401);
-        throw new Error ("User is not authorized")
+    if (!token) {
+      response.status(401);
+      throw new Error("User is not authorized");
     }
   } catch (error) {
     next(error);

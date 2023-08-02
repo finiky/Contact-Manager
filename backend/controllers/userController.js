@@ -65,11 +65,11 @@ const loginUser = async (request, response, next) => {
             user: {
               username: registerdUser.username,
               email: registerdUser.email,
-              id: registerdUser._id,
+              _id: registerdUser._id,
             },
           },
           process.env.ACCESS_TOKEN_SECRET,
-          { expiresIn: "10m" }
+          { expiresIn: "30m" }
         );
         response.status(200).json({ accessToken });
       }
