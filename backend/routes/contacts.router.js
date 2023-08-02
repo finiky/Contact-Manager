@@ -1,5 +1,5 @@
 const express = require("express");
-
+const userValidation = require("../middleware/validateToken");
 const {
   getContacts,
   createContact,
@@ -10,10 +10,12 @@ const {
 
 const router = express.Router();
 
-router.get("/api/contacts", getContacts).post("/api/contacts", createContact);
 router
-  .get("/api/contacts/:contactid", getContact)
-  .put("/api/contacts/:contactid", updateContact)
-  .delete("/api/contacts/:contactid", deleteContact);
+  .get("/api/contacts", userValidation, getContacts)
+  .post("/api/contacts", userValidation, createContact);
+router
+  .get("/api/contacts/:contactid", userValidation, getContact)
+  .put("/api/contacts/:contactid", userValidation, updateContact)
+  .delete("/api/contacts/:contactid", userValidation, deleteContact);
 
 module.exports = router;
