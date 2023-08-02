@@ -23,9 +23,9 @@ const registerUser = async (request, response, next) => {
       password: hashedPassword,
     });
     if (registerUser) {
-      response.status(200).json(registerUser);
+      response.status(200).json({_id: registerUser._id, username: registerUser.username, email: registerUser.email});
     } else {
-      response.status(404);
+      response.status(400);
       throw new Error(`Error registering the user. Kindly try again.`);
     }
   } catch (error) {
