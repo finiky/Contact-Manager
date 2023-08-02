@@ -1,14 +1,20 @@
-const userSchema = require("../models/userModel");
-const registerUser = (request, response, next) => {
+const userModel = require("../models/userModel");
+const registerUser = async (request, response, next) => {
   try {
-    const { name, password, email } = request.body;
+    const { name, email, password } = request.body;
     if (!name || !password || !email) {
       response.status(400);
       throw new Error(
         "Kindly ensure that the name, email and password fields are filled"
       );
     }
-    response.status(200).json({ message: "Register User" });
+    const userAvailibility = await userModel.findOne({ email });
+    if (userAvailibility) {
+      response.status(400);
+      throw new Error(`User with Email Id: ${email} already exists.`);
+    }
+    const registerUser = await userModel.create({ name, email, password });
+    response.status(200).json(registerUser);
   } catch (error) {
     next(error);
   }

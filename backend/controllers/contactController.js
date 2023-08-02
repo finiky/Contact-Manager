@@ -1,8 +1,8 @@
-const contactSchema = require("../models/contactModel");
+const contactModel = require("../models/contactModel");
 const ObjectId = require("mongodb").ObjectId;
 const getContacts = async (request, response) => {
   try {
-    const contacts = await contactSchema.find();
+    const contacts = await contactModel.find();
     response.status(200).json(contacts);
   } catch (error) {
     next(error);
@@ -18,7 +18,7 @@ const createContact = async (request, response, next) => {
         "Kindly ensure that the name, email and phone fields are filled."
       );
     }
-    const contact = await contactSchema.create({
+    const contact = await contactModel.create({
       name,
       email,
       phone,
@@ -40,7 +40,7 @@ const getContact = async (request, response, next) => {
       response.status(400);
       throw new Error("Contact Id is invalid");
     }
-    const contact = await contactSchema.findById(request.params.contactid);
+    const contact = await contactModel.findById(request.params.contactid);
     if (!contact) {
       response.status(404);
       throw new Error("Contact not found");
@@ -57,12 +57,12 @@ const updateContact = async (request, response, next) => {
       response.status(400);
       throw new Error("Contact Id is invalid");
     }
-    const contact = await contactSchema.findById(request.params.contactid);
+    const contact = await contactModel.findById(request.params.contactid);
     if (!contact) {
       response.status(404);
       throw new Error("Contact not found");
     }
-    const updatedContact = await contactSchema.findByIdAndUpdate(
+    const updatedContact = await contactModel.findByIdAndUpdate(
       request.params.contactid,
       request.body,
       { new: true }
@@ -84,12 +84,12 @@ const deleteContact = async (request, response, next) => {
       response.status(400);
       throw new Error("Contact Id is invalid");
     }
-    const contact = await contactSchema.findById(request.params.contactid);
+    const contact = await contactModel.findById(request.params.contactid);
     if (!contact) {
       response.status(404);
       throw new Error("Contact not found");
     }
-    const deletedContact = await contactSchema.findByIdAndRemove(
+    const deletedContact = await contactModel.findByIdAndRemove(
       request.params.contactid
     );
     if (deletedContact) {
