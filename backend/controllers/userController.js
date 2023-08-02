@@ -1,8 +1,11 @@
 const userModel = require("../models/userModel");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
 const registerUser = async (request, response, next) => {
   try {
-    const { name, email, password } = request.body;
-    if (!name || !password || !email) {
+    const { username, email, password } = request.body;
+    if (!username || !password || !email) {
       response.status(400);
       throw new Error(
         "Kindly ensure that the name, email and password fields are filled"
@@ -13,13 +16,24 @@ const registerUser = async (request, response, next) => {
       response.status(400);
       throw new Error(`User with Email Id: ${email} already exists.`);
     }
-    const registerUser = await userModel.create({ name, email, password });
-    response.status(200).json(registerUser);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const registerUser = await userModel.create({
+      username,
+      email,
+      password: hashedPassword,
+    });
+    if (registerUser) {
+      response.status(200).json(registerUser);
+    } else {
+      response.status(404);
+      throw new Error(`Error registering the user. Kindly try again.`);
+    }
   } catch (error) {
     next(error);
   }
 };
 
+//@access: private
 const currentUser = (request, response, next) => {
   try {
     const { login } = request.params;

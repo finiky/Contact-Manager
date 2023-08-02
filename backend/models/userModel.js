@@ -13,7 +13,7 @@ const Schema = mongoose.Schema(
     },
     password: {
       type: String,
-      require: [true, "Please add a password"],
+      required: [true, "Please add a password"],
     },
   },
   { timestamp: true }
