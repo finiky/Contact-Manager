@@ -1,57 +1,67 @@
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
+import Cookies from "universal-cookie";
+import jwt from "jwt-decode";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   //   const navigate = useNavigate();
+  const cookies = new Cookies();
+
   const handleSubmit = async () => {
     const response = await fetch("http://localhost:5002/api/users/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
-    if (response.status === 200) {
-      console.log("Login Success");
+    if (response.ok) {
+      const { accessToken } = await response.json();
+      const decoded = jwt(accessToken);
+      cookies.set("JWT-Authorization", accessToken, {
+        expires: new Date(decoded.exp * 1000),
+      });
     } else {
-      console.log("Login Unsuccessful");
+      setError(true);
     }
   };
+  if (error) {
+    return <div>Unsuccessful Login Attempt.</div>;
+  }
   return (
     <div className={styles.main}>
-      <form className={styles.form} onSubmit={() => handleSubmit()}>
-        <div className={styles.inputDiv}>
-          <label htmlFor="email">Email Id</label>
-          <input
-            id="email"
-            className={styles.input}
-            type="email"
-            placeholder="email id"
-            required
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
-        <div className={styles.inputDiv}>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            className={styles.input}
-            type="password"
-            placeholder="password"
-            required
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <button className={styles.button} type="submit">
-          Sign In
-        </button>
-      </form>
+      <div className={styles.inputDiv}>
+        <label htmlFor="email">Email Id</label>
+        <input
+          id="email"
+          className={styles.input}
+          type="email"
+          placeholder="email id"
+          required
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+      </div>
+      <div className={styles.inputDiv}>
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          className={styles.input}
+          type="password"
+          placeholder="password"
+          required
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+      </div>
+      <button className={styles.button} type="submit" onClick={handleSubmit}>
+        Sign In
+      </button>
     </div>
   );
 };

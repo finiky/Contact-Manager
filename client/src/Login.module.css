@@ -2,15 +2,13 @@
     text-align: center;
     background-color: lightyellow;
     padding: 2rem 0;
-}
-.heading {
-    margin-top: 0;
-}
-.form {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1fr;
     row-gap: 2rem;
+}
+.heading {
+    margin-top: 0;
 }
 .inputDiv {
     width:80%;
