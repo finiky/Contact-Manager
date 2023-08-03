@@ -26,7 +26,7 @@ const createContact = async (request, response, next) => {
       email,
       phone,
     });
-    if (contact.length) {
+    if (contact) {
       response.status(201).json(contact);
     } else {
       response.status(400);

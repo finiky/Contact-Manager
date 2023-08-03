@@ -71,7 +71,9 @@ const loginUser = async (request, response, next) => {
           process.env.ACCESS_TOKEN_SECRET,
           { expiresIn: "30m" }
         );
+        response.cookie({ name: accessToken });
         response.status(200).json({ accessToken });
+        
       }
     }
   } catch (error) {
