@@ -1,0 +1,33 @@
+.main {
+    text-align: center;
+    background-color: lightyellow;
+    padding: 2rem 0;
+}
+.heading {
+    margin-top: 0;
+}
+.form {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+}
+.inputDiv {
+    width:80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 0.9fr 1fr;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+.input {
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+.button {
+    width: 40%;
+    margin: 1rem auto;
+    font-size: 1.25rem;
+    font-weight: 700;
+}

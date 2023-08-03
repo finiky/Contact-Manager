@@ -1,0 +1,9 @@
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+.heading {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
