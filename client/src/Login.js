@@ -18,7 +18,6 @@ const Login = () => {
     });
     if (response.ok) {
       const { accessToken } = await response.json();
-      console.log(accessToken);
       const decoded = jwt(accessToken);
       cookies.set("JWT-Authorization", accessToken, {
         expires: new Date(decoded.exp * 1000),
