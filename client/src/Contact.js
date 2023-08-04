@@ -138,10 +138,22 @@ const Contact = () => {
     return <p>Loading...</p>;
   }
   if (error) {
-    return <p>Error loading contact information.</p>;
+    return (
+      <div>
+        <p>Error loading contact information.</p>
+        <button>
+          <Link to="/contacts">All Contacts</Link>
+        </button>
+      </div>
+    );
   }
   if (editError) {
-    return <p>Error editing the contact.</p>;
+    return (
+      <div>
+        <p>Error editing the contact.</p>;
+        <Link to={`/contacts/${contactid}`}>View Contact</Link>
+      </div>
+    );
   }
   return (
     <div>
