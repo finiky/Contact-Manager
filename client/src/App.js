@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import styles from "./App.module.css";
 import Login from "./Login";
 import Contacts from "./Contacts";
+import Contact from "./Contact";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Routes>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/contacts" element={<Contacts />} />
+        <Route exact path="/contacts/:contactid" element={<Contact />} />
       </Routes>
     </div>
   );

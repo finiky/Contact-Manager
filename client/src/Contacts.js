@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
+import Button from "./Button";
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, setError] = useState(false);
-
   useEffect(() => {
     const fetchContacts = async () => {
       const cookies = new Cookies();
@@ -42,9 +42,7 @@ const Contacts = () => {
             <p>{contact.email}</p>
             <p>{contact.phone}</p>
             <div>
-              <button>View Contact</button>
-              <button>Update Contact</button>
-              <button>Delete Contact</button>
+              <Button contactid={contact._id}>View Contact</Button>
             </div>
           </li>
         );
