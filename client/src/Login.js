@@ -1,16 +1,16 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import Cookies from "universal-cookie";
 import jwt from "jwt-decode";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const cookies = new Cookies();
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const response = await fetch("http://localhost:5002/api/users/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -18,19 +18,21 @@ const Login = () => {
     });
     if (response.ok) {
       const { accessToken } = await response.json();
+      console.log(accessToken);
       const decoded = jwt(accessToken);
       cookies.set("JWT-Authorization", accessToken, {
         expires: new Date(decoded.exp * 1000),
       });
+      navigate("/contacts");
     } else {
-      setError(true);
+      setEmail("");
+      setPassword("");
+      navigate("/login");
     }
   };
-  if (error) {
-    return <div>Unsuccessful Login Attempt.</div>;
-  }
+
   return (
-    <div className={styles.main}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.inputDiv}>
         <label htmlFor="email">Email Id</label>
         <input
@@ -59,10 +61,10 @@ const Login = () => {
           }}
         />
       </div>
-      <button className={styles.button} type="submit" onClick={handleSubmit}>
+      <button className={styles.button} type="submit">
         Sign In
       </button>
-    </div>
+    </form>
   );
 };
 
