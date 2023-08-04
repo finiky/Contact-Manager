@@ -41,6 +41,11 @@ const Contacts = () => {
             <p>{contact.name}</p>
             <p>{contact.email}</p>
             <p>{contact.phone}</p>
+            <div>
+              <button>View Contact</button>
+              <button>Update Contact</button>
+              <button>Delete Contact</button>
+            </div>
           </li>
         );
       })}
