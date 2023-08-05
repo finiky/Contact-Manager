@@ -31,6 +31,9 @@ const App = () => {
         <button className={styles.button}>
           <Link className={styles.link} to="/register">Register</Link>
         </button>
+        <button className={styles.button}>
+          <Link className={styles.link} to="/contacts">Home</Link>
+        </button>
       </header>
       <h1 className={styles.heading}>Contact Manager</h1>
       <Routes>

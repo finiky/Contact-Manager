@@ -1,10 +1,10 @@
 .main {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 }
 .header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 2rem;
   margin-top: 2rem;
   padding: 1rem;
