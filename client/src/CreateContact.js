@@ -45,6 +45,7 @@ const CreateContact = () => {
           id="name"
           className={styles.input}
           type="text"
+          placeholder="type a name"
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -59,6 +60,7 @@ const CreateContact = () => {
           id="email"
           type="email"
           required
+          placeholder="type an email id"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -72,6 +74,7 @@ const CreateContact = () => {
           className={styles.input}
           type="text"
           required
+          placeholder="type a phone number"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
