@@ -33,7 +33,9 @@ const Login = () => {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.inputDiv}>
-        <label htmlFor="email">Email Id</label>
+        <label className={styles.label} htmlFor="email">
+          Email Id
+        </label>
         <input
           id="email"
           className={styles.input}
@@ -47,12 +49,14 @@ const Login = () => {
         />
       </div>
       <div className={styles.inputDiv}>
-        <label htmlFor="password">Password</label>
+        <label className={styles.label} htmlFor="password">
+          Password
+        </label>
         <input
           id="password"
           className={styles.input}
           type="password"
-          placeholder="type ypur password"
+          placeholder="type your password"
           required
           value={password}
           onChange={(e) => {

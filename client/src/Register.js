@@ -9,7 +9,7 @@ const Register = () => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5002/api/users/login", {
+    const response = await fetch("http://localhost:5002/api/users/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password }),
@@ -25,7 +25,7 @@ const Register = () => {
     return (
       <div>
         <p>Error Registering.</p>
-        <Link to="/register">Retry Registeration</Link>
+        <Link to="http://localhost:3000/register">Retry Registeration</Link>
       </div>
     );
   }
@@ -73,7 +73,9 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button type="submit">Register</button>
+      <button className={styles.button} type="submit">
+        Register
+      </button>
     </form>
   );
 };

@@ -7,22 +7,25 @@
   padding: 1.5rem;
 }
 .inputDiv {
-  width: 100%;  
+  width: 100%;
   background-color: #e6adad;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 1rem;
-  
 }
 .label {
-    font-size: 1.25rem;
-    padding-top: 1rem;
-    justify-self: center;
+  font-size: 1rem;
+  padding-top: 1rem;
+  justify-self: center;
 }
 .input {
-    text-align: center;
-    padding: 0.5rem;
-    font-weight: 550;
-    font-size: 1rem;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+.button {
+  width: 40%;
+  margin: 1rem auto;
+  font-size: 1.1rem;
 }
