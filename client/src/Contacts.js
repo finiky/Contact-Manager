@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
-import Button from "./Button";
 import styles from "./Contacts.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, setError] = useState(false);
-
+  const navigate = useNavigate();
+  const handleClick = (a) => {
+    navigate(`/contacts/${a}`);
+  };
   useEffect(() => {
     const fetchContacts = async () => {
       const cookies = new Cookies();
@@ -57,9 +60,14 @@ const Contacts = () => {
               <p id="phone">{contact.phone}</p>
             </div>
             <div className={styles.butDiv}>
-              <Button className={styles.but} contactid={contact._id}>
+              <button
+                className={styles.but}
+                onClick={() => {
+                  handleClick(contact._id);
+                }}
+              >
                 View Contact
-              </Button>
+              </button>
             </div>
           </li>
         );
