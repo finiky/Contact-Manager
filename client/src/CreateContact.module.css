@@ -1,0 +1,25 @@
+.form {
+  padding: 1.5rem;
+  background-color: rgb(42, 42, 39);
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1.5rem;
+}
+.inputDiv {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 1rem;
+  background-color: #e6adad;
+  padding: 0.5rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.but {
+  text-decoration: none;
+  color: black;
+  background-color: #e6adad;
+  font-size: 1rem;
+  font-weight: 550;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}

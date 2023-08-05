@@ -202,7 +202,7 @@ const Contact = () => {
         </button>
         <button className={styles.but}>
           <Link className={styles.link} to="/contacts">
-            All Contacts
+            View Contacts
           </Link>
         </button>
       </div>

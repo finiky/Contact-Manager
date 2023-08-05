@@ -4,6 +4,7 @@ import Login from "./Login";
 import Contacts from "./Contacts";
 import Contact from "./Contact";
 import Register from "./Register";
+import CreateContact from "./CreateContact";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/contacts" element={<Contacts />} />
+        <Route exact path="/create" element={<CreateContact />} />
         <Route exact path="/contacts/:contactid" element={<Contact />} />
       </Routes>
     </div>
