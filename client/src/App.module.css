@@ -5,10 +5,10 @@
 .header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 2rem;
+  column-gap: 1rem;
   margin-top: 2rem;
-  padding: 1rem;
-  background-color: rgb(42, 42, 39);
+  padding: 0.5rem;
+  background-color: rgb(42, 42, 39);;
 }
 .button {
   background-color: #e6adad;
@@ -27,5 +27,5 @@
   padding: 0.5rem;
   text-align: center;
   background-color: #e6adad;
-  border: solid 10px rgb(42, 42, 39);
+  border: solid 0.5rem rgb(42, 42, 39);
 }

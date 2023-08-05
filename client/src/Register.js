@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Register.module.css";
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -53,7 +53,7 @@ const Register = () => {
       </div>
       <div className={styles.inputDiv}>
         <label className={styles.label} htmlFor="email">
-          Email
+          Email Id
         </label>
         <input
           className={styles.input}
