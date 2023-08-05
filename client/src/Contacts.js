@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import Button from "./Button";
+import styles from "./Contacts.module.css";
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
   const [loading, setloading] = useState(true);
@@ -34,15 +35,26 @@ const Contacts = () => {
     return <p>Loading...</p>;
   }
   return (
-    <ul>
+    <ul className={styles.ul}>
       {contacts.map((contact) => {
         return (
-          <li key={contact._id}>
-            <p>{contact.name}</p>
-            <p>{contact.email}</p>
-            <p>{contact.phone}</p>
-            <div>
-              <Button contactid={contact._id}>View Contact</Button>
+          <li className={styles.contact} key={contact._id}>
+            <div className={styles.name}>
+              <label htmlFor="name">Name:</label>
+              <p id="name">{contact.name}</p>
+            </div>
+            <div className={styles.email}>
+              <label htmlFor="email">Email:</label>
+              <p id="email">{contact.email}</p>
+            </div>
+            <div className={styles.phone}>
+              <label htmlFor="phone">Phone:</label>
+              <p id="phone">{contact.phone}</p>
+            </div>
+            <div className={styles.butDiv}>
+              <Button className={styles.but} contactid={contact._id}>
+                View Contact
+              </Button>
             </div>
           </li>
         );

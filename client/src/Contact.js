@@ -1,6 +1,7 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
+import styles from "./Contact.module.css";
 const Contact = () => {
   const [contact, setContact] = useState({});
   const [loading, setLoading] = useState(true);
@@ -94,20 +95,26 @@ const Contact = () => {
   };
   if (edit) {
     return (
-      <form onSubmit={handleEdit}>
-        <div>
-          <label htmlFor="name">Name</label>
+      <form className={styles.edit} onSubmit={handleEdit}>
+        <div className={styles.inputDiv}>
+          <label className={styles.label} htmlFor="name">
+            Name{" "}
+          </label>
           <input
             id="name"
+            className={styles.input}
             type="text"
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="email">Email Id</label>
+        <div className={styles.inputDiv}>
+          <label className={styles.label} htmlFor="email">
+            Email Id{" "}
+          </label>
           <input
+            className={styles.input}
             id="email"
             type="email"
             required
@@ -115,22 +122,33 @@ const Contact = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="phone">Phone</label>
+        <div className={styles.inputDiv}>
+          <label className={styles.label} htmlFor="phone">
+            Phone{" "}
+          </label>
           <input
             id="phone"
+            className={styles.input}
             type="text"
             required
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
-        <button type="submit">Confirm Edit</button>
-        <button>
-          <Link onClick={() => setEdit(false)} to={`/contacts/${contactid}`}>
-            Cancel Edit
-          </Link>
-        </button>
+        <div className={styles.editBut}>
+          <button className={styles.but} type="submit">
+            Confirm
+          </button>
+          <button className={styles.but}>
+            <Link
+              className={styles.link}
+              onClick={() => setEdit(false)}
+              to={`/contacts/${contactid}`}
+            >
+              Cancel
+            </Link>
+          </button>
+        </div>
       </form>
     );
   }
@@ -156,15 +174,38 @@ const Contact = () => {
     );
   }
   return (
-    <div>
-      <p>{contact.name}</p>
-      <p>{contact.email}</p>
-      <p>{contact.phone}</p>
-      <button onClick={() => setEdit(true)}>Edit Contact</button>
-      <button onClick={handleDelete}>Delete Contact</button>
-      <button>
-        <Link to="/contacts">All Contacts</Link>
-      </button>
+    <div className={styles.contact}>
+      <div className={styles.name}>
+        <label htmlFor="name">Name:</label>
+        <p id="name" className>
+          {contact.name}
+        </p>
+      </div>
+      <div className={styles.email}>
+        <label htmlFor="email">Email:</label>
+        <p id="email" className>
+          {contact.email}
+        </p>
+      </div>
+      <div className={styles.phone}>
+        <label htmlFor="phone">Email:</label>
+        <p id="phone" className>
+          {contact.phone}
+        </p>
+      </div>
+      <div className={styles.buttons}>
+        <button className={styles.but} onClick={() => setEdit(true)}>
+          Edit Contact
+        </button>
+        <button className={styles.but} onClick={handleDelete}>
+          Delete Contact
+        </button>
+        <button className={styles.but}>
+          <Link className={styles.link} to="/contacts">
+            All Contacts
+          </Link>
+        </button>
+      </div>
     </div>
   );
 };

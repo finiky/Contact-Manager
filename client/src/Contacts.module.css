@@ -1,0 +1,39 @@
+.ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+.contact {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: rgb(42, 42, 39);
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  align-items: center;
+  font-weight: 700;
+}
+.name,
+.email,
+.phone {
+  margin: 0;
+  background-color: #e6adad;
+  padding: 0.5rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.butDiv {
+  justify-self: center;
+}
+.but {
+  padding: 0.5rem;
+  background-color: #9c9999;
+  font-weight: 550;
+  font-size: 1rem;
+}
