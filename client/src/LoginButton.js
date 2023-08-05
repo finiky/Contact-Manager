@@ -1,14 +1,8 @@
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
-const LoginButton = ({ loginStatus, setLoginStatus }) => {
+const LoginButton = ({ loginStatus, setLoginStatus, className }) => {
   const navigate = useNavigate();
   const cookies = new Cookies();
-  const accessToken = cookies.get("JWT-Authorization");
-  if (accessToken) {
-    setLoginStatus("Logout");
-  } else {
-    setLoginStatus("Login");
-  }
   const handleLogin = () => {
     if (loginStatus === "Logout") {
       cookies.remove("JWT-Authorization", {
@@ -22,7 +16,11 @@ const LoginButton = ({ loginStatus, setLoginStatus }) => {
       navigate("/login");
     }
   };
-  return <button onClick={(e) => handleLogin(e)}>{loginStatus}</button>;
+  return (
+    <button className={className} onClick={(e) => handleLogin(e)}>
+      {loginStatus}
+    </button>
+  );
 };
 
 export default LoginButton;

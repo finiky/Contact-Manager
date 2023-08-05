@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import Cookies from "universal-cookie";
 import jwt from "jwt-decode";
-const Login = () => {
+const Login = ({ setLoginStatus }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -22,10 +22,12 @@ const Login = () => {
       cookies.set("JWT-Authorization", accessToken, {
         expires: new Date(decoded.exp * 1000),
       });
+      setLoginStatus("Logout");
       navigate("/contacts");
     } else {
       setEmail("");
       setPassword("");
+      setLoginStatus("Login");
       navigate("/login");
     }
   };
