@@ -1,0 +1,28 @@
+.form {
+  background-color: rgb(42, 42, 39);
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  font-weight: 700;
+  padding: 1.5rem;
+}
+.inputDiv {
+  width: 100%;  
+  background-color: #e6adad;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  
+}
+.label {
+    font-size: 1.25rem;
+    padding-top: 1rem;
+    justify-self: center;
+}
+.input {
+    text-align: center;
+    padding: 0.5rem;
+    font-weight: 550;
+    font-size: 1rem;
+}

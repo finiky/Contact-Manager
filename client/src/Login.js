@@ -38,7 +38,7 @@ const Login = () => {
           id="email"
           className={styles.input}
           type="email"
-          placeholder="email id"
+          placeholder="type your email id"
           required
           value={email}
           onChange={(e) => {
@@ -52,7 +52,7 @@ const Login = () => {
           id="password"
           className={styles.input}
           type="password"
-          placeholder="password"
+          placeholder="type ypur password"
           required
           value={password}
           onChange={(e) => {
