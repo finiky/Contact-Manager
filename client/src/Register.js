@@ -24,8 +24,14 @@ const Register = () => {
   if (error) {
     return (
       <div>
-        <p>Error Registering.</p>
-        <Link to="http://localhost:3000/register">Retry Registeration</Link>
+        <p>Error Registering</p>
+        <button
+          onClick={() => {
+            window.location.reload(false);
+          }}
+        >
+          Retry Registering
+        </button>
       </div>
     );
   }

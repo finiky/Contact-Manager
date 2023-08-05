@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import styles from "./App.module.css";
 import Login from "./Login";
 import Register from "./Register";
@@ -28,20 +28,22 @@ const App = () => {
           loginStatus={loginStatus}
           setLoginStatus={setLoginStatus}
         />
-        <button className={styles.button}>Register</button>
+        <button className={styles.button}>
+          <Link className={styles.link} to="/register">Register</Link>
+        </button>
       </header>
       <h1 className={styles.heading}>Contact Manager</h1>
       <Routes>
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/contacts" element={<Contacts />} />
+        <Route exact path="/contacts/:contactid" element={<Contact />} />
+        <Route exact path="/create" element={<CreateContact />} />
+        <Route exact path="/edit/:contactid" element={<EditContact />} />
         <Route
           exact
           path="/login"
           element={<Login setLoginStatus={setLoginStatus} />}
         />
-        <Route exact path="/contacts" element={<Contacts />} />
-        <Route exact path="/contacts/:contactid" element={<Contact />} />
-        <Route exact path="/create" element={<CreateContact />} />
-        <Route exact path="/edit/:contactid" element={<EditContact />} />
       </Routes>
     </div>
   );

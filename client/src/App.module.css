@@ -17,6 +17,10 @@
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+.link {
+  text-decoration: none;
+  color: black;
+}
 .heading {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
