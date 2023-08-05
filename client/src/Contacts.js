@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import Button from "./Button";
 import styles from "./Contacts.module.css";
+
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, setError] = useState(false);
+
   useEffect(() => {
     const fetchContacts = async () => {
       const cookies = new Cookies();
@@ -28,12 +30,15 @@ const Contacts = () => {
     };
     fetchContacts();
   }, []);
+
   if (error) {
     return <p>Error loading the content.</p>;
   }
+
   if (loading) {
     return <p>Loading...</p>;
   }
+
   return (
     <ul className={styles.ul}>
       {contacts.map((contact) => {
