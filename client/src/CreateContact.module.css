@@ -4,7 +4,7 @@
   row-gap: 1rem;
   background-color: rgb(42, 42, 39);
   font-weight: 700;
-  padding: 1.5rem;
+  padding: 0.5rem;
 }
 .inputDiv {
   display: grid;
@@ -16,7 +16,7 @@
   word-break: break-word;
 }
 .label {
-  font-size: 1rem;
+  font-size: 1.1rem;
   padding-top: 1rem;
   justify-self: center;
 }
@@ -24,14 +24,22 @@
   font-weight: 700;
   text-align: center;
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 .but {
   text-decoration: none;
   color: black;
   background-color: #e6adad;
-  font-size: 1rem;
-  font-weight: 550;
+  font-size: 1.1rem;
+  font-weight: 700;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+@media only screen and (min-width: 34rem) {
+  .label,
+  .input,
+  .but {
+    font-size: 2rem;
+  }
 }
