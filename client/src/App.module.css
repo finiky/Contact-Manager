@@ -21,11 +21,15 @@
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+.grid {
+  grid-column-start: 3;
+}
 .link {
   text-decoration: none;
   color: black;
 }
 .heading {
+  font-size: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 0;
   padding: 0.5rem;

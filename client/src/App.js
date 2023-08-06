@@ -1,5 +1,6 @@
 import { Route, Routes, Link } from "react-router-dom";
 import styles from "./App.module.css";
+import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Contacts from "./Contacts";
@@ -44,16 +45,17 @@ const App = () => {
             My Contacts
           </Link>
         </button>
-        <button className={styles.button}>
+        <button className={`${styles.button} ${styles.grid}`}>
           <Link className={styles.link} to="/create">
             Create Contact
           </Link>
         </button>
-        
       </header>
 
       <Routes>
+        <Route exact path="/" element={<Home />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/create" element={<CreateContact />} />
         <Route exact path="/contacts" element={<Contacts />} />
         <Route exact path="/contacts/:contactid" element={<Contact />} />
         <Route exact path="/create" element={<CreateContact />} />

@@ -1,0 +1,11 @@
+.about {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  background-color: #e6adad;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.5rem;
+  line-height: 1.75rem;
+  text-align: justify;
+  border: solid 0.5rem rgb(42, 42, 39);
+}
