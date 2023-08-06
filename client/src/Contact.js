@@ -94,7 +94,7 @@ const Contact = () => {
         </p>
       </div>
       <div className={styles.phone}>
-        <label htmlFor="phone">Email:</label>
+        <label htmlFor="phone">Phone:</label>
         <p id="phone" className>
           {contact.phone}
         </p>
