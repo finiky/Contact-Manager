@@ -40,12 +40,12 @@
 
 @media only screen and (min-width: 34rem) {
   .button {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .heading {
     margin-top: 4rem;
     margin-bottom: 4rem;
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .header {
     margin-bottom: 4rem;
@@ -54,7 +54,7 @@
 
 @media only screen and (min-width: 64rem) {
   .main {
-    width: 65%;
+    width: 50%;
   }
   .grid {
     grid-column-start: 3;
