@@ -9,3 +9,9 @@
   text-align: justify;
   border: solid 0.5rem rgb(42, 42, 39);
 }
+
+@media only screen and (min-width: 34rem) {
+  .about {
+    font-size: 2rem;
+  }
+}
