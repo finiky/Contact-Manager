@@ -35,12 +35,23 @@ const App = () => {
           </Link>
         </button>
         <button className={styles.button}>
-          <Link className={styles.link} to="/contacts">
-            Contacts
+          <Link className={styles.link} to="/">
+            Home
           </Link>
         </button>
+        <button className={styles.button}>
+          <Link className={styles.link} to="/contacts">
+            My Contacts
+          </Link>
+        </button>
+        <button className={styles.button}>
+          <Link className={styles.link} to="/create">
+            Create Contact
+          </Link>
+        </button>
+        
       </header>
-      
+
       <Routes>
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/contacts" element={<Contacts />} />
