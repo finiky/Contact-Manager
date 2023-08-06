@@ -1,0 +1,43 @@
+.contact {
+  background-color: rgb(42, 42, 39);
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  align-items: center;
+  font-weight: 700;
+  padding: 0.5rem;
+}
+.name,
+.email,
+.phone {
+  background-color: #e6adad;
+  padding: 0.5rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-size: 1.1rem;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 0.75rem;
+}
+.link,
+.but {
+  text-decoration: none;
+  color: black;
+  background-color: #e6adad;
+  font-size: 1rem;
+  font-weight: 700;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+@media only screen and (min-width: 34rem) {
+  .name,
+  .email,
+  .phone,
+  .link,
+  .but {
+    font-size: 2rem;
+  }
+}

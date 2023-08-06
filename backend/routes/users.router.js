@@ -7,7 +7,7 @@ const {
   loginUser,
 } = require("../controllers/userController");
 
-router.get("/api/users/login", loginUser);
+router.post("/api/users/login", loginUser);
 router.post("/api/users/register", registerUser);
 router.get("/api/users/current", userValidation, currentUser);
 

@@ -1,0 +1,43 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  background-color: rgb(42, 42, 39);
+  font-weight: 700;
+  padding: 0.5rem;
+}
+.inputDiv {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: #e6adad;
+  row-gap: 1rem;
+  padding: 0.25rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.label {
+  font-size: 1.1rem;
+  padding-top: 1rem;
+  justify-self: center;
+  font-weight: 700;
+}
+.input {
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.button {
+  background-color: #e6adad;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+@media only screen and (min-width: 34rem) {
+  .label,
+  .input,
+  .button {
+    font-size: 2rem;
+  }
+}

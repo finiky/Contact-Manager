@@ -1,5 +1,6 @@
 const contactModel = require("../models/contactModel");
 const ObjectId = require("mongodb").ObjectId;
+
 const getContacts = async (request, response) => {
   try {
     const { _id } = request.user;
@@ -67,7 +68,7 @@ const getContact = async (request, response, next) => {
 const updateContact = async (request, response, next) => {
   try {
     const { _id } = request.user;
-    const contactid = request.params.contactid;
+    const { contactid } = request.params;
     if (!ObjectId.isValid(request.params.contactid)) {
       response.status(400);
       throw new Error("Contact Id is invalid");
@@ -101,7 +102,7 @@ const updateContact = async (request, response, next) => {
 const deleteContact = async (request, response, next) => {
   try {
     const { _id } = request.user;
-    const contactid = request.params.contactid;
+    const { contactid } = request.params;
     if (!ObjectId.isValid(request.params.contactid)) {
       response.status(400);
       throw new Error("Contact Id is invalid");
