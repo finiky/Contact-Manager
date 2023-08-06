@@ -22,6 +22,7 @@ const App = () => {
   }, []);
   return (
     <div className={styles.main}>
+      <h1 className={styles.heading}>Contact Manager</h1>
       <header className={styles.header}>
         <LoginButton
           className={styles.button}
@@ -39,7 +40,7 @@ const App = () => {
           </Link>
         </button>
       </header>
-      <h1 className={styles.heading}>Contact Manager</h1>
+      
       <Routes>
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/contacts" element={<Contacts />} />

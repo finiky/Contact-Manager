@@ -16,7 +16,7 @@
   word-break: break-word;
 }
 .label {
-  font-size: 1rem;
+  font-size: 1.1rem;
   padding-top: 1rem;
   justify-self: center;
   font-weight: 700;
@@ -24,12 +24,20 @@
 .input {
   font-weight: 700;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 .button {
   background-color: #e6adad;
-  font-size: 1rem;
-  font-weight: 550;
+  font-size: 1.1rem;
+  font-weight: 700;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+@media only screen and (min-width: 34rem) {
+  .label,
+  .input,
+  .button {
+    font-size: 2rem;
+  }
 }

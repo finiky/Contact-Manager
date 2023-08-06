@@ -34,3 +34,14 @@
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+
+@media only screen and (min-width: 34rem) {
+  .label,
+  .input,
+  .button {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 64rem) {
+}
