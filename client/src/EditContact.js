@@ -46,7 +46,7 @@ const EditContact = () => {
     const cookies = new Cookies();
     const accessToken = cookies.get("JWT-Authorization");
     const response = await fetch(
-      `${process.env.PORT}/api/contacts/${contactid}`,
+      `${process.env.REACT_APP_URL}/api/contacts/${contactid}`,
       {
         method: "PUT",
         headers: {

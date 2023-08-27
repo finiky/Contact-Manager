@@ -11,7 +11,7 @@ const Login = ({ setLoginStatus }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${process.env.PORT}/api/users/login`, {
+    const response = await fetch(`${process.env.REACT_APP_URL}/api/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

@@ -12,7 +12,7 @@ const CreateContact = () => {
     e.preventDefault();
     const cookies = new Cookies();
     const accessToken = cookies.get("JWT-Authorization");
-    const response = await fetch(`${process.env.PORT}/api/contacts`, {
+    const response = await fetch(`${process.env.REACT_APP_URL}/api/contacts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
