@@ -5,7 +5,7 @@ const contactsRouter = require("./routes/contacts.router");
 const userRouter = require("./routes/users.router");
 const errorHandling = require("./middleware/errorHandler");
 const connectDb = require("./config/dbConnection");
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 const app = express();
 connectDb();
 app.use(cors());

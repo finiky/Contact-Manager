@@ -12,7 +12,7 @@ const CreateContact = () => {
     e.preventDefault();
     const cookies = new Cookies();
     const accessToken = cookies.get("JWT-Authorization");
-    const response = await fetch("http://localhost:5002/api/contacts", {
+    const response = await fetch(`${process.env.PORT}/api/contacts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

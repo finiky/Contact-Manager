@@ -15,7 +15,7 @@ const Contacts = () => {
     const fetchContacts = async () => {
       const cookies = new Cookies();
       const accessToken = cookies.get("JWT-Authorization");
-      const response = await fetch("http://localhost:5002/api/contacts", {
+      const response = await fetch(`${process.env.PORT}/api/contacts`, {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${accessToken}`,
