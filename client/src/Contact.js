@@ -47,7 +47,7 @@ const Contact = () => {
       const cookies = new Cookies();
       const accessToken = cookies.get("JWT-Authorization");
       const response = await fetch(
-        `http://localhost:5002/api/contacts/${contactid}`,
+        `${process.env.REACT_APP_URL}/api/contacts/${contactid}`,
         {
           method: "DELETE",
           headers: {
